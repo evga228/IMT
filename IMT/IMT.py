@@ -5,16 +5,19 @@ print(nimi,",oi kui ilus nimi!")
 print(nimi, ",")
 vastus=int(input("kas sa tahat leida oma keha massi indeksi? 1-jah, 0-ei: "))
 if vastus==1:
-    try:
-        pikkus=int(input("Sisesta oma pikkus tais sentimeetrites: "))
-    except:
-        pikkus==175
-        print("VIGA, pikkus=175")
-    try:
-        mass=float(input("Sisesta oma kaalu(kilogrammides): "))
-    except:
-        mass==65
-        print("VIGA, mass=65")
+    while True:
+        try:
+            pikkus=int(input("Sisesta oma pikkus tais sentimeetrites: "))
+            if pikkus>0 and pikkus<273: break
+        except:
+            print("VIGA")
+    mass=-1
+    while mass<0 or mass>400:
+        try:        
+            mass=float(input("Sisesta oma kaalu(kilogrammides): "))
+        except:
+            mass==1
+       
     indeks=mass/(0.01*pikkus)**2
     print(nimi,",sinu keha indeks on:", round(indeks,1))
     if indeks<16:
